@@ -1,7 +1,12 @@
 import Lottie from "lottie-react";
 import register from "../../assets/register.json";
 import { Form, Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from 'sweetalert2'
 const Register = () => {
+    const [error, setError] = useState('');
+    const { createUser } = useContext(AuthContext);
     const handleRegister = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -9,7 +14,22 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photoUrl.value;
-        console.log(name, email, password, photo)
+        console.log(name, email, password, photo);
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Sign Up Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                })
+            })
+            .catch(error => {
+                setError(error.message);
+            })
     }
     return (
         <div className="px-36">
@@ -47,11 +67,8 @@ const Register = () => {
                                 <input type="text" name='photoUrl' required placeholder="photo url" className="input login-input" />
                             </div>
                             <div className="form-control mt-6">
-                                {/* <p className='text-red-500 mb-2'>{error}</p>
-                    <p className='text-emerald-500 mb-2'>{success}</p> */}
+                                <p className='text-red-500 mb-2'>{error}</p>
                                 <button className="btn btn-primary text-white" >Register</button>
-
-
                                 <small className='mt-2 text-center'>Already have an account? <Link to='/login' className='text-primary font-bold'>Login</Link> </small>
                             </div>
                         </Form>
