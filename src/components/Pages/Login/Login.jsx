@@ -26,6 +26,7 @@ const Login = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 })
+                event.target.reset();
             })
             .catch(error => {
                 setError(error.message);
@@ -42,6 +43,7 @@ const Login = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 })
+
             })
             .catch(error => {
                 setError(error.message);

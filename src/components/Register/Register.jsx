@@ -6,7 +6,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Swal from 'sweetalert2'
 const Register = () => {
     const [error, setError] = useState('');
-    const { createUser } = useContext(AuthContext);
+    const { createUser, handleUpdateProfile } = useContext(AuthContext);
     const handleRegister = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -19,6 +19,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                handleUpdateProfile(createUser, name, photo);
                 setError('');
                 Swal.fire({
                     title: 'Success!',
@@ -26,6 +27,7 @@ const Register = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 })
+                event.target.reset();
             })
             .catch(error => {
                 setError(error.message);
