@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 const AddToy = () => {
     const handleAddToy = (event) => {
         event.preventDefault();
@@ -11,8 +12,30 @@ const AddToy = () => {
         const category = form.category.value;
         const ratings = form.ratings.value;
         const details = form.details.value;
-        const newCoffee = { name, quantity, seller, email, price, url, ratings, details, category }
-        console.log(newCoffee);
+        const newToy = { name, quantity, seller, email, price, url, ratings, details, category }
+        console.log(newToy);
+        // send data to server 
+        fetch('http://localhost:5000/toy', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(newToy)
+        })
+
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Coffee added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Okay'
+                    })
+                    form.reset();
+                }
+            })
     }
     return (
         <div className="md:px-36 py-10">
