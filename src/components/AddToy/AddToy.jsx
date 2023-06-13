@@ -1,5 +1,9 @@
+import { useContext } from 'react';
 import Swal from 'sweetalert2'
+import { AuthContext } from '../Provider/AuthProvider';
 const AddToy = () => {
+    const { user } = useContext(AuthContext);
+    console.log(user)
     const handleAddToy = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -48,8 +52,8 @@ const AddToy = () => {
                     <input type="number" name='quantity' placeholder="Available Quantity" className="input ms-2 input-bordered login-input w-full" />
                 </div>
                 <div className='flex my-2'>
-                    <input type="text" name='seller' placeholder="Seller Name" className="me-2 input input-bordered login-input w-full" />
-                    <input type="email" name='email' placeholder="Seller Email" className="input ms-2 input-bordered login-input w-full" />
+                    <input type="text" name='seller' defaultValue={user?.displayName} placeholder="Seller Name" className="me-2 input input-bordered login-input w-full" />
+                    <input type="email" name='email' defaultValue={user?.email} placeholder="Seller Email" className="input ms-2 input-bordered login-input w-full" />
                 </div>
                 <div className='flex my-2'>
                     {/* <input type="text" name='category' placeholder="Category" className="me-2 input input-bordered login-input w-full" /> */}

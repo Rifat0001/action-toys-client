@@ -19,7 +19,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                handleUpdateProfile(createUser, name, photo);
+                handleUpdateProfile(user, name, photo);
                 setError('');
                 Swal.fire({
                     title: 'Success!',

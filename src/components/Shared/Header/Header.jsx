@@ -13,8 +13,9 @@ const Header = () => {
     }
     const navLinks = <>
         <li><Link className='font-bold' to="/">Home</Link></li>
-        <li><a className='font-bold  '>All Toys</a></li>
+        <li><Link className='font-bold' to="/allToy">All Toy</Link></li>
         <li><Link className='font-bold' to="/addToy">Add Toy</Link></li>
+
         <li><Link className='font-bold' to="/blog">Blog</Link></li>
     </>
     return (

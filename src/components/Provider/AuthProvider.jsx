@@ -29,6 +29,28 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
+
+    // const handleUpdateProfile = (displayName, photoURL) => {
+    //     setLoading(true);
+    //     return updateProfile(auth.currentUser, {
+    //         displayName: displayName,
+    //         photoURL: photoURL,
+    //     });
+    // };
+
+    const handleUpdateProfile = (currentUser, name, photoUrl) => {
+
+        return updateProfile(currentUser, {
+            displayName: name, photoURL: photoUrl
+        })
+            .then(() => {
+                console.log('user name updated');
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
     // for check is the user is sign in or not? 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, loggedUser => {
@@ -41,18 +63,6 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    const handleUpdateProfile = (loggedUser, name, photoUrl) => {
-
-        updateProfile(loggedUser, {
-            displayName: name, photoURL: photoUrl
-        })
-            .then(() => {
-                console.log('user name updated');
-            })
-            .catch(error => {
-                console.log(error.message)
-            })
-    }
 
     const authInfo = {
         user, createUser, signIn, googleSignIn, handleUpdateProfile, logOut, loading
