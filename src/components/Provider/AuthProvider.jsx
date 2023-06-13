@@ -1,13 +1,16 @@
 import { createContext, useEffect, useState } from 'react';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../Firebase/Firebase.config';
+import BounceLoader from "react-spinners/BounceLoader";
 export const AuthContext = createContext();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider();
-
+    // if (loading) {
+    //     return <div className='flex justify-center my-10 mt-60'><BounceLoader color="#4a07da" size={100} /></div>
+    // }
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
