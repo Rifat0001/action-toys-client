@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import login from "../../../assets/sign in.json";
 import { FaGoogle } from "react-icons/fa";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 import './Login.css'
 import { useContext, useState } from "react";
@@ -9,6 +9,9 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Login = () => {
     const [error, setError] = useState('');
     const { signIn, googleSignIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -19,6 +22,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
                 setError('');
                 Swal.fire({
                     title: 'Success!',
@@ -37,6 +41,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
                 Swal.fire({
                     title: 'Success!',
                     text: 'Login Successfully',
