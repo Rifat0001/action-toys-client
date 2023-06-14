@@ -60,9 +60,9 @@ const AddToy = () => {
                     <select
                         className="input input-bordered w-full login-input " name="category"
                     >
-                        <option value="marvel">Marvel</option>
-                        <option value="transformers">Transformers</option>
-                        <option value="starWar">Star War</option>
+                        <option value="Marvel">Marvel</option>
+                        <option value="Transformers">Transformers</option>
+                        <option value="StarWar">Star War</option>
                     </select>
                     <input type="number" name='price' placeholder="Price" className="input ms-2 input-bordered login-input w-full" />
                 </div>
