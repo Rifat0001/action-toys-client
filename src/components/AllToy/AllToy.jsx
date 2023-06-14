@@ -8,44 +8,45 @@ const AllToy = () => {
             <h1 className="text-5xl font-bold text-center mb-4">All
                 <span className="text-primary"> Toys</span>
             </h1>
-            <div className="overflow-x-auto py-6">
-                <table className="table table-zebra">
-                    {/* head */}
-                    <thead>
-                        <tr>
+            <table className="table">
+                {/* head */}
+                <thead>
+                    <tr >
+                        <th>SI</th>
+                        <th >Seller</th>
+                        <th>Toy Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                            <th>Seller</th>
-                            <th>Toy Name</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                    {
+                        toys.map((toy, index) =>
 
-                        {
-                            toys.map(toy =>
+                            < tr key={toy._id} >
 
-                                <tr key={toy._id}>
-                                    <td>{toy.seller}</td>
-                                    <td>{toy.name}</td>
-                                    <td>{toy.category}</td>
-                                    <td>{toy.price}</td>
-                                    <td>{toy.quantity}</td>
-                                    <td><Link to={`/toy/${toy._id}`}><button className="btn btn-primary">
-                                        Details
-                                    </button></Link></td>
+                                <td>{index + 1}</td>
+                                <td>{toy.seller}</td>
+                                <td>{toy.name}</td>
+                                <td>{toy.category}</td>
+                                <td>{toy.price}</td>
+                                <td>{toy.quantity}</td>
+                                <td><Link to={`/toy/${toy._id}`}><button className="btn btn-primary">
+                                    Details
+                                </button></Link></td>
 
-                                </tr>
-                            )
-                        }
+                            </tr>
+                        )
+                    }
 
 
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
         </div>
+        </div >
 
     );
 };
