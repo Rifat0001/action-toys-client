@@ -7,12 +7,13 @@ import Register from "../Register/Register";
 import AddToy from "../AddToy/AddToy";
 import AllToy from "../AllToy/AllToy";
 import Details from "../Details/Details";
+import MyToy from "../MyToy/MyToy";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Layout></Layout>,
-        children: [
+        _children: [
             {
                 path: "/",
                 element: <Home></Home>
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path: "/addToy",
                 element: <AddToy></AddToy>
+            },
+            {
+                path: "/myToy",
+                element: <MyToy></MyToy>
             },
             {
                 path: "/allToy",
@@ -43,7 +48,13 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register></Register>
             }
-        ]
+        ],
+        get children() {
+            return this._children;
+        },
+        set children(value) {
+            this._children = value;
+        },
     },
 ]);
 

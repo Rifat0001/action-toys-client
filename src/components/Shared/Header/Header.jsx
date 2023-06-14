@@ -15,7 +15,7 @@ const Header = () => {
         <li><Link className='font-bold' to="/">Home</Link></li>
         <li><Link className='font-bold' to="/allToy">All Toy</Link></li>
         <li><Link className='font-bold' to="/addToy">Add Toy</Link></li>
-
+        <li><Link className='font-bold' to="/myToy">My Toy</Link></li>
         <li><Link className='font-bold' to="/blog">Blog</Link></li>
     </>
     return (

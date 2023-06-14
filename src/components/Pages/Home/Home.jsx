@@ -1,6 +1,7 @@
 import Lottie from "lottie-react";
 import hero from "../../../assets/toys_hero.json";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import FilterCategory from "../../FilterCategory/FilterCategory";
 const Home = () => {
     return (
         <div >
@@ -58,6 +59,7 @@ const Home = () => {
 
                 </div>
             </section>
+            <FilterCategory></FilterCategory>
             {/* contact us section  */}
             <section className='grid md:grid-cols-2 grid-cols-1  justify-between items-center md:px-28 px-4 py-20'>
                 <div className=''>

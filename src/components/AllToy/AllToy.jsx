@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom";
-
+import './AllToy.css'
 const AllToy = () => {
     const toys = useLoaderData();
     console.log(toys)
@@ -46,7 +46,7 @@ const AllToy = () => {
                 </tbody>
             </table>
         </div>
-        </div >
+
 
     );
 };
