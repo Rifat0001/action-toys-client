@@ -19,7 +19,7 @@ const FilterCategory = () => {
         setOpenTab(tabName);
     };
     return (
-        <div className="py-16">
+        <div className="py-16 md:px-36">
             <div className="text-center space-y-3 py-4">
                 <h1 className="text-5xl font-bold text-center mb-4">Shop By
                     <span className="text-primary"> Category</span></h1>
