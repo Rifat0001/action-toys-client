@@ -5,7 +5,7 @@ const Details = () => {
     const { seller, name, price, category, details, email, quantity, ratings, url } = toy;
     console.log(toy)
     return (
-        <div className="card grid md:grid-cols-2  justify-center content-center items-center grid-cols-1  bg-base-100 shadow-xl">
+        <div className="card grid md:grid-cols-2  justify-center content-center items-center grid-cols-1  bg-base-100 shadow-xl py-20">
             <div>
                 <figure><img className='w-[500px] h-[500px]' src={url} alt="Movie" /></figure>
             </div>

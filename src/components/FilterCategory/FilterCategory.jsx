@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import SignleFilter from "../SingleFilter/SignleFilter";
 
 const FilterCategory = () => {
     const [toys, setToys] = useState([]);
     const [openTab, setOpenTab] = useState("marvel");
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toy/toy/${openTab}`)
+        fetch(`http://localhost:5000/allToy/${openTab}`)
             .then((res) => res.json())
             .then((data) => {
                 setToys(data);
@@ -20,37 +21,37 @@ const FilterCategory = () => {
     return (
         <div className="py-16">
             <div className="text-center space-y-3 py-4">
-                <h2 className="text-5xl font-bold text-primary">Shop By Category</h2>
-                <p className="text-xl font-medium">
-                    See Our Awesome Toy Cars & Purchase!
-                </p>
+                <h1 className="text-5xl font-bold text-center mb-4">Shop By
+                    <span className="text-primary"> Category</span></h1>
+
             </div>
-            <div className="tabs justify-center text-center font-bold py-4">
+            <div className="tabs justify-center text-center gap-4 font-bold py-4">
                 <button
-                    onClick={() => handleTabClick("marvel")}
-                    className={`tab marvel ${openTab == "marvel" ? "btn btn-primary rounded-sm text-xl text-white" : " btn btn-primary btn-outline rounded-sm"
+                    onClick={() => handleTabClick("Marvel")}
+                    className={`tab Marvel ${openTab == "Marvel" ? "btn btn-primary rounded-sm  text-white" : " btn btn-primary btn-outline rounded-sm"
                         }`}
                 >
-                    Racing
+                    Marvel
                 </button>
                 <button
-                    onClick={() => handleTabClick("regular")}
-                    className={`tab regular ${openTab == "regular" ? "btn btn-primary rounded-sm text-xl text-white" : " btn btn-warning rounded-sm"
+                    onClick={() => handleTabClick("Transformers")}
+                    className={`tab Transformers ${openTab == "Transformers" ? "btn btn-primary rounded-sm  text-white" : " btn btn-primary btn-outline rounded-sm"
                         }`}
                 >
-                    Regular
+                    Transformers
                 </button>
                 <button
-                    onClick={() => handleTabClick("trucks")}
-                    className={`tab trucks ${openTab == "trucks" ? "btn btn-primary rounded-sm text-xl text-white" : " btn btn-warning rounded-sm"
+                    onClick={() => handleTabClick("StarWar")}
+                    className={`tab StarWar ${openTab == "StarWar" ? "btn btn-primary rounded-sm  text-white" : " btn btn-primary btn-outline rounded-sm"
                         }`}
                 >
-                    Trucks
+                    Star War
                 </button>
+
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-center gap-y-6">
                 {toys.slice(0, 3).map((toy) => (
-                    <ToyCard toy={toy} key={toy._id}></ToyCard>
+                    <SignleFilter toy={toy} key={toy._id}></SignleFilter>
                 ))}
             </div>
         </div>
