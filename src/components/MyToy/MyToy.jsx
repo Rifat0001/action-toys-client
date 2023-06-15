@@ -16,19 +16,16 @@ const MyToy = () => {
             })
     }, [user])
 
-    // update a toy function
-    const handleUpdate = (data) => {
-        console.log(data);
-        fetch(
-            `https://b7a11-toy-marketplace-server-side-muhiminulalvi.vercel.app/myToys/${data?._id}`,
-            {
-                method: "PUT",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(data),
-            }
-        )
+
+    const updateData = data => {
+        // send data to server side use post method to trigger server side App.post function 
+        fetch(`http://localhost:5000/myToys/${data._id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
             .then((res) => res.json())
             .then((data) => {
                 if (data.modifiedCount > 0) {
@@ -38,7 +35,8 @@ const MyToy = () => {
                 }
                 console.log(data);
             });
-    };
+    }
+
 
     // delete toy function
     const handleDelete = (id) => {
@@ -110,7 +108,7 @@ const MyToy = () => {
                                 <td> <button className="btn btn-success text-white" onClick={() => window.my_modal_1.showModal()}>Edit</button></td>
                                 <dialog id="my_modal_1" className="modal">
 
-                                    <form method="dialog" className='modal-box'>
+                                    <form onSubmit={handleUpdate(updateData)} method="dialog" className='modal-box'>
                                         <div className='flex my-2'>
                                             <input type="text" defaultValue={toy?.name} name='name' placeholder="Toy Name" className="me-2 input input-bordered login-input w-full" />
                                             <input type="number" defaultValue={toy?.quantity} name='quantity' placeholder="Available Quantity" className="input ms-2 input-bordered login-input w-full" />
@@ -137,12 +135,12 @@ const MyToy = () => {
                                         <div className=' my-2'>
                                             <input type="text" name='details' defaultValue={toy?.details} placeholder="Toy Description" className="me-2 input input-bordered login-input w-full" />
                                         </div>
-                                        <div className="flex justify-around py-4">
-                                            <button className="btn btn-primary text-white" onClick={() => handleUpdate(toy._id)}>Update</button> <button className="btn btn-error">Close</button>
-                                        </div>
+
+                                        <button className="btn btn-primary text-white"  >Update</button>
+
 
                                     </form>
-
+                                    <button className="btn btn-error">Close</button>
                                 </dialog>
                                 <td><button onClick={() => handleDelete(toy._id)} className="btn btn-error text-white">
                                     Delete
