@@ -23,7 +23,7 @@ const router = createBrowserRouter([
             {
                 path: "/upDate/:id",
                 element: <MyToyDetails></MyToyDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({ params }) => fetch(`https://action-toys-server-tau.vercel.app/toy/${params.id}`)
             },
             {
                 path: "/addToy",
@@ -36,12 +36,12 @@ const router = createBrowserRouter([
             {
                 path: "/allToy",
                 element: <AllToy></AllToy>,
-                loader: () => fetch('http://localhost:5000/toy')
+                loader: () => fetch('https://action-toys-server-tau.vercel.app/toy')
             },
             {
                 path: "toy/:id",
                 element: <Private><Details></Details></Private>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({ params }) => fetch(`https://action-toys-server-tau.vercel.app/toy/${params.id}`)
             },
             {
                 path: "/blog",

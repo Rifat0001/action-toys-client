@@ -19,7 +19,7 @@ const AddToy = () => {
         const newToy = { name, quantity, seller, email, price, url, ratings, details, category }
         console.log(newToy);
         // send data to server 
-        fetch('http://localhost:5000/toy', {
+        fetch('https://action-toys-server-tau.vercel.app/toy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -6,7 +6,7 @@ const FilterCategory = () => {
     const [openTab, setOpenTab] = useState("marvel");
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allToy/${openTab}`)
+        fetch(`https://action-toys-server-tau.vercel.app/allToy/${openTab}`)
             .then((res) => res.json())
             .then((data) => {
                 setToys(data);

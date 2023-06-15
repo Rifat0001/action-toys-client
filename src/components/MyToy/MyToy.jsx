@@ -8,7 +8,7 @@ const MyToy = () => {
     const [toys, setToys] = useState([]);
     const [control, setControl] = useState(false);
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys/${user?.email}`)
+        fetch(`https://action-toys-server-tau.vercel.app/myToys/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setToys(data)
@@ -17,7 +17,7 @@ const MyToy = () => {
     }, [user, control])
     const updateData = data => {
         // send data to server side use post method to trigger server side App.post function 
-        fetch(`http://localhost:5000/myToys/${data._id}`, {
+        fetch(`https://action-toys-server-tau.vercel.app/myToys/${data._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -54,7 +54,7 @@ const MyToy = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/myToys/${id}`, {
+                fetch(`https://action-toys-server-tau.vercel.app/myToys/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

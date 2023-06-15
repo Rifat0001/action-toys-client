@@ -11,7 +11,7 @@ const AllToy = () => {
     useEffect(() => {
         // limit up to 20 
         fetch(
-            "http://localhost:5000/toy"
+            "https://action-toys-server-tau.vercel.app/toy"
         )
             .then((res) => res.json())
             .then((data) => {
@@ -21,7 +21,7 @@ const AllToy = () => {
     }, []);
     // use for search function /toySearchBy/:text
     const handleSearch = () => {
-        fetch(`http://localhost:5000/toySearchBy/${searchText}`)
+        fetch(`https://action-toys-server-tau.vercel.app/toySearchBy/${searchText}`)
             .then(res => res.json())
             .then((data) => {
                 setAllToy(data)
