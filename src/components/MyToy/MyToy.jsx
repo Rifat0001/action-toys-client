@@ -14,8 +14,7 @@ const MyToy = () => {
                 setToys(data)
                 console.log(data)
             })
-    }, [user])
-
+    }, [user, control])
     const updateData = data => {
         // send data to server side use post method to trigger server side App.post function 
         fetch(`http://localhost:5000/myToys/${data._id}`, {
@@ -23,16 +22,22 @@ const MyToy = () => {
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
         })
             .then((res) => res.json())
             .then((data) => {
                 if (data.modifiedCount > 0) {
                     setControl(!control);
-                    // sweet alert
-                    Swal.fire("Updated!", "The toy has been updated.", "success");
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Toy Updated',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                 }
                 console.log(data);
+
             });
     }
 

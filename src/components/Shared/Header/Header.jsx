@@ -20,7 +20,7 @@ const Header = () => {
     </>
     return (
         <div>
-            <div className="navbar bg-base-100 px-36 py-3 mt-2">
+            <div className="navbar bg-base-100 md:px-36 py-3 mt-2">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -30,7 +30,7 @@ const Header = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case  text-primary font-bold text-3xl italic">
+                    <a className="btn btn-ghost normal-case  text-primary font-bold md:text-3xl text-2xl italic">
                         <Link to="/">
                             Action Toys
                         </Link>

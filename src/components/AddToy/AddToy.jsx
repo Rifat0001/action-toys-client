@@ -49,30 +49,30 @@ const AddToy = () => {
             </h1>
             <form onSubmit={handleAddToy} className='my-8'>
                 <div className='flex my-2'>
-                    <input type="text" name='name' placeholder="Toy Name" className="me-2 input input-bordered login-input w-full" />
-                    <input type="number" name='quantity' placeholder="Available Quantity" className="input ms-2 input-bordered login-input w-full" />
+                    <input type="text" required name='name' placeholder="Toy Name" className="me-2 input input-bordered login-input w-full" />
+                    <input type="number" required name='quantity' placeholder="Available Quantity" className="input ms-2 input-bordered login-input w-full" />
                 </div>
                 <div className='flex my-2'>
-                    <input type="text" name='seller' defaultValue={user?.displayName} placeholder="Seller Name" className="me-2 input input-bordered login-input w-full" />
-                    <input type="email" name='email' defaultValue={user?.email} placeholder="Seller Email" className="input ms-2 input-bordered login-input w-full" />
+                    <input type="text" required name='seller' defaultValue={user?.displayName} placeholder="Seller Name" className="me-2 input input-bordered login-input w-full" />
+                    <input type="email" required name='email' defaultValue={user?.email} placeholder="Seller Email" className="input ms-2 input-bordered login-input w-full" />
                 </div>
                 <div className='flex my-2'>
                     {/* <input type="text" name='category' placeholder="Category" className="me-2 input input-bordered login-input w-full" /> */}
                     <select
-                        className="input input-bordered w-full login-input " name="category"
+                        className="input required input-bordered w-full login-input " name="category"
                     >
                         <option value="Marvel">Marvel</option>
                         <option value="Transformers">Transformers</option>
                         <option value="StarWar">Star War</option>
                     </select>
-                    <input type="number" name='price' placeholder="Price" className="input ms-2 input-bordered login-input w-full" />
+                    <input type="number" required name='price' placeholder="Price" className="input ms-2 input-bordered login-input w-full" />
                 </div>
                 <div className='flex my-2'>
-                    <input type="text" name='url' placeholder="Photo Url" className="me-2 input input-bordered login-input w-full" />
-                    <input type="number" name='ratings' placeholder="Ratings" className="input ms-2 input-bordered login-input w-full" />
+                    <input type="text" name='url' required placeholder="Photo Url" className="me-2 input input-bordered login-input w-full" />
+                    <input type="number" name='ratings' required placeholder="Ratings" className="input ms-2 input-bordered login-input w-full" />
                 </div>
                 <div className=' my-2'>
-                    <input type="text" name='details' placeholder="Toy Description" className="me-2 input input-bordered login-input w-full" />
+                    <input type="text" name='details' required placeholder="Toy Description" className="me-2 input input-bordered login-input w-full" />
                 </div>
                 <button className="btn btn-primary text-white w-full">Add Toy</button>
             </form>

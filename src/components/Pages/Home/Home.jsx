@@ -8,7 +8,7 @@ const Home = () => {
             {/* hero section part  */}
             <section className="hero  bg-black">
                 <div className="hero-content grid md:grid-cols-2 grid-cols-1">
-                    <div className="ms-4">
+                    <div className="ms-4 md:mt-0 mt-8">
                         <h1 className="text-5xl font-bold text-white md:me-32 me-0 leading-tight">Best <span className="text-primary"> Action Figure</span>  Toys in Town</h1>
                         <p className="py-6 md:me-32 me-0 text-white">Unleash your imagination and ignite the adventure with Action Toys — where dreams take flight and heroes are born!</p>
                         <button className="btn text-white btn-primary">Buy Now</button>
@@ -20,17 +20,17 @@ const Home = () => {
                 </div>
             </section>
             {/* about section part  */}
-            <section className="px-28 py-10">
+            <section className="md:px-28 py-10">
                 <div className="hero-content grid md:grid-cols-2 grid-cols-1 gap-6 justify-around">
 
                     <div >
                         <img src="https://th.bing.com/th/id/R.f66dd69881ee715323092298c3466a42?rik=08AL6EH38WpLCA&pid=ImgRaw&r=0" alt="" className="" />
                     </div>
-                    <div className="ms-12">
-                        <h1 className="text-5xl font-bold  md:me-32 me-0 leading-tight">Our
+                    <div className="md:ms-12">
+                        <h1 className="text-5xl font-bold md:text-start text-center  md:me-32 me-0 leading-tight">Our
                             <span className="text-primary"> Story</span>
                         </h1>
-                        <div className="py-6 md:me-20 me-0">
+                        <div className="py-6  md:me-20 me-0">
                             <p >Welcome to Action Toys, where the world of imagination and play collide! We are a premier destination for all things action-packed and thrilling. At our toy shop, we believe in the power of play to inspire, educate, and entertain children of all ages.</p>
                             <br />
                             <p >We take pride in delivering exceptional customer service, ensuring a seamless shopping experience from start to finish. Our knowledgeable staff is always ready to assist you in finding the perfect toy or answer any questions you may have.</p>
@@ -41,12 +41,12 @@ const Home = () => {
                 </div>
             </section>
             {/* gallery section  */}
-            <section className="px-28 py-10">
+            <section className="md:px-28 px-4 py-10">
                 <div className="text-center">
                     <h1 className="text-5xl font-bold mb-4">Our
                         <span className="text-primary"> Gallery</span>
                     </h1>
-                    <p className="mx-48">A visual feast for toy enthusiasts and collectors alike! Step into a world of wonder as we showcase a stunning array of action figures, playsets, and vehicles that will ignite your imagination.</p>
+                    <p className="md:mx-48 mx-8" >A visual feast for toy enthusiasts and collectors alike! Step into a world of wonder as we showcase a stunning array of action figures, playsets, and vehicles that will ignite your imagination.</p>
                 </div>
                 <div className="grid md:grid-cols-3 grid-cols-1 gap-10 mt-10">
                     <img src="https://i.ibb.co/Cv89SP2/OIP-3.jpg" alt="" className="border  shadow-md shadow-indigo-500/50 rounded-lg w-[400px] h-[400px]" />

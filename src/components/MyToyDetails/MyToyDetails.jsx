@@ -38,7 +38,7 @@ const MyToyDetails = ({ toy, index, handleDelete, updateData }) => {
                 <td>
                     <label
                         htmlFor={modalId}
-                        className="btn btn-primary text-white font-bold"
+                        className="btn btn-success text-white font-bold"
                     >
                         Edit
                     </label>
@@ -47,20 +47,20 @@ const MyToyDetails = ({ toy, index, handleDelete, updateData }) => {
                         <div className="modal-box w-11/12 max-w-5xl">
                             <form
                                 onSubmit={handleSubmit(updateData)}
-                                className="space-y-10 py-16 px-8 mx-5 rounded-md shadow-lg bg-primary"
+                                className="space-y-10 py-16 px-8 mx-5 rounded-md  "
                             >
-                                <h2 className="text-white font-bold text-3xl text-center">
-                                    Please Update Toy!
+                                <h2 className="text-primary font-bold text-3xl text-center">
+                                    Update your toy
                                 </h2>
                                 <div className="flex items-center justify-between gap-4 font-bold">
                                     <input
-                                        className="input input-bordered w-1/2"
+                                        className="input login-input input-bordered w-1/2"
                                         {...register("toy_name")}
                                         placeholder="Name of the Toy Car"
                                         defaultValue={name}
                                     />
                                     <input
-                                        className="input input-bordered w-1/2"
+                                        className="input login-input input-bordered w-1/2"
                                         {...register("image")}
                                         placeholder="image link"
                                         type="url"
@@ -69,7 +69,7 @@ const MyToyDetails = ({ toy, index, handleDelete, updateData }) => {
                                 </div>
                                 <div className="flex items-center justify-between gap-4 font-bold">
                                     <input
-                                        className="input input-bordered w-1/2"
+                                        className="input login-input input-bordered w-1/2"
                                         {...register("seller_name")}
                                         placeholder="Seller Name"
                                         type="text"
@@ -77,7 +77,7 @@ const MyToyDetails = ({ toy, index, handleDelete, updateData }) => {
                                         readOnly
                                     />
                                     <input
-                                        className="input input-bordered w-1/2"
+                                        className="input login-input input-bordered w-1/2"
                                         value={email}
                                         {...register("email")}
                                         placeholder="Seller Email"
@@ -93,21 +93,21 @@ const MyToyDetails = ({ toy, index, handleDelete, updateData }) => {
 
                                 <div className="flex items-center gap-4 font-bold">
                                     <input
-                                        className="input input-bordered w-1/2"
+                                        className="input login-input input-bordered w-1/2"
                                         {...register("quantity")}
                                         placeholder="Quantity"
                                         defaultValue={quantity}
                                         type="number"
                                     />
                                     <input
-                                        className="input input-bordered w-1/2"
+                                        className="input login-input input-bordered w-1/2"
                                         {...register("price", { required: true })}
                                         placeholder="Price"
                                         defaultValue={price}
                                         type="number"
                                     />
                                     <select
-                                        className="input input-bordered w-1/4"
+                                        className="input login-input input-bordered w-1/4"
                                         defaultValue={category}
                                         {...register("category")}
                                     >
@@ -118,21 +118,21 @@ const MyToyDetails = ({ toy, index, handleDelete, updateData }) => {
                                 </div>
 
                                 <input
-                                    className="input input-bordered w-full font-bold"
+                                    className="input login-input input-bordered w-full font-bold"
                                     {...register("description")}
                                     placeholder="Description"
                                     defaultValue={details}
                                 />
                                 <input
                                     type="submit"
-                                    className="btn btn-warning font-bold w-full"
+                                    className="btn btn-primary btn-outline font-bold w-full"
                                     value="Update Toy"
                                 />
                             </form>
 
                             <div className="modal-action">
-                                <label htmlFor={modalId} className="btn btn-primary">
-                                    Close
+                                <label htmlFor={modalId} className="btn btn-sm btn-circle btn-error btn-outline absolute right-2 top-2">
+                                    X
                                 </label>
                             </div>
                         </div>
@@ -141,7 +141,7 @@ const MyToyDetails = ({ toy, index, handleDelete, updateData }) => {
                 <th>
                     <button
                         onClick={() => handleDelete(_id)}
-                        className="btn btn-primary font-bold text-white"
+                        className="btn btn-error font-bold text-white"
                     >
                         Delete
                     </button>

@@ -1,13 +1,50 @@
 import { Link, useLoaderData } from "react-router-dom";
 import './AllToy.css'
+import { useEffect, useState } from "react";
 const AllToy = () => {
     const toys = useLoaderData();
-    console.log(toys)
+    const [searchText, setSearchText] = useState("");
+    const [allToy, setAllToy] = useState([]);
+    // use the state for searching the toy name
+    const [filteredToy, setFilteredToy] = useState([]);
+
+    useEffect(() => {
+        // limit up to 20 
+        fetch(
+            "http://localhost:5000/toy"
+        )
+            .then((res) => res.json())
+            .then((data) => {
+                setAllToy(data);
+                setFilteredToy(data);
+            });
+    }, []);
+    // use for search function /toySearchBy/:text
+    const handleSearch = () => {
+        fetch(`http://localhost:5000/toySearchBy/${searchText}`)
+            .then(res => res.json())
+            .then((data) => {
+                setAllToy(data)
+            })
+    }
+
     return (
         <div className="md:px-36 py-10">
             <h1 className="text-5xl font-bold text-center mb-8">All
                 <span className="text-primary"> Toys</span>
             </h1>
+            <div className="search-box p-2 text-center">
+                <input
+                    type="text"
+                    placeholder="Search Toy Name"
+
+                    onChange={(e) => setSearchText(e.target.value)}
+                    className="input input-bordered font-bold"
+                />{" "}
+                <button onClick={handleSearch} className="btn btn-primary text-white">
+                    Search
+                </button>
+            </div>
             <table className="table">
                 {/* head */}
                 <thead>

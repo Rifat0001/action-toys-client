@@ -1,6 +1,6 @@
 const Blog = () => {
     return (
-        <div className='md:px-36'>
+        <div className='md:px-36 px-4'>
             <div className="collapse collapse-plus bg-indigo-100 my-4">
                 <input type="radio" name="my-accordion-3" checked="checked" />
                 <div className="collapse-title text-xl font-medium">

@@ -35,7 +35,7 @@ const Register = () => {
             })
     }
     return (
-        <div className="px-36">
+        <div className="md:px-36 px-4">
             <div className="hero-content grid md:grid-cols-2 grid-cols-1">
                 <div className="w-full">
                     <Lottie animationData={register} loop={true} />
@@ -44,7 +44,7 @@ const Register = () => {
                 <div className="w-full ">
                     <div className="">
                         <h1 className='text-center font-bold my-4 text-3xl text-primary'>Register here</h1>
-                        <Form onSubmit={handleRegister} className="card-body  w-3/4 mx-auto rounded shadow-lg shadow-indigo-500/50">
+                        <Form onSubmit={handleRegister} className="card-body w-full  md:w-3/4 mx-auto rounded shadow-lg shadow-indigo-500/50">
                             <div className="form-control ">
                                 <label className="label">
                                     <span className="label-text">Name</span>
