@@ -5,7 +5,7 @@ const AllToy = () => {
     console.log(toys)
     return (
         <div className="md:px-36 py-10">
-            <h1 className="text-5xl font-bold text-center mb-4">All
+            <h1 className="text-5xl font-bold text-center mb-8">All
                 <span className="text-primary"> Toys</span>
             </h1>
             <table className="table">

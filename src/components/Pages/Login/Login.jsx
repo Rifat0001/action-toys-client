@@ -25,10 +25,11 @@ const Login = () => {
                 navigate(from, { replace: true });
                 setError('');
                 Swal.fire({
-                    title: 'Success!',
-                    text: 'Login Successfully',
+                    position: 'top-center',
                     icon: 'success',
-                    confirmButtonText: 'OK'
+                    title: 'Login Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
                 })
                 event.target.reset();
             })
@@ -43,10 +44,11 @@ const Login = () => {
                 console.log(user);
                 navigate(from, { replace: true });
                 Swal.fire({
-                    title: 'Success!',
-                    text: 'Login Successfully',
+                    position: 'top-center',
                     icon: 'success',
-                    confirmButtonText: 'OK'
+                    title: 'Login Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
                 })
 
             })

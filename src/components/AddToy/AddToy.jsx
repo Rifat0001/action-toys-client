@@ -32,10 +32,11 @@ const AddToy = () => {
                 console.log(data)
                 if (data.insertedId) {
                     Swal.fire({
-                        title: 'Success!',
-                        text: 'Coffee added successfully',
+                        position: 'top-center',
                         icon: 'success',
-                        confirmButtonText: 'Okay'
+                        title: 'Toy Added Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
                     })
                     form.reset();
                 }

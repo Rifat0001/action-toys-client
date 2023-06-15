@@ -22,10 +22,11 @@ const Register = () => {
                 handleUpdateProfile(user, name, photo);
                 setError('');
                 Swal.fire({
-                    title: 'Success!',
-                    text: 'Sign Up Successfully',
+                    position: 'top-center',
                     icon: 'success',
-                    confirmButtonText: 'OK'
+                    title: 'Sign Up Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
                 })
                 event.target.reset();
             })
