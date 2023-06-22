@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Layout></Layout>,
-        _children: [
+        children: [
             {
                 path: "/",
                 element: <Home></Home>
@@ -35,8 +35,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/allToy",
-                element: <AllToy></AllToy>,
-                loader: () => fetch('https://action-toys-server-tau.vercel.app/toy')
+                element: <AllToy></AllToy>
             },
             {
                 path: "toy/:id",
@@ -55,14 +54,8 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register></Register>
             }
-        ],
-        get children() {
-            return this._children;
-        },
-        set children(value) {
-            this._children = value;
-        },
-    },
+        ]
+    }
 ]);
 
 export default router;
